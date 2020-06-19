@@ -18,3 +18,12 @@ Hook up a rails back end
 have list and item save in the data base
 Add a cart feature
 Total sum of the price with the cart feature -->
+
+
+        Index
+        |
+        app
+        /  \
+      form  list
+              \
+              item
