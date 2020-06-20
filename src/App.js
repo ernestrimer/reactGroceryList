@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 //Imports
 import { Header } from 'semantic-ui-react';
 import List from './components/groceries/List';
+import ItemForm from './components/groceries/ItemForm';
 
 //State
 class App extends Component {
@@ -15,6 +16,18 @@ class App extends Component {
   ]}
 
   //Functions
+  getId = () => {
+    // NOTE We are just using this as a helper function for id's since we aren't using a db yet
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  };
+
+  addItem = (incomingItem) => {
+    const { groceries } = this.state
+    let newItem = { id: this.getId(), ...incomingItem }
+    this.setState({ groceries: [newItem, ...groceries] })
+  }
 
   //JSX/HTML
   render() {
@@ -25,9 +38,10 @@ class App extends Component {
         <Header size='huge' color="red" align="center">
           Grocery List
         </Header>
-        <List
-          groceries={groceries}
-        />
+        <List groceries={groceries} />
+        <br/>
+        <h3>Add Item to List</h3>
+        <ItemForm addItem={this.addItem} />
       </div>
     )
   }

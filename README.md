@@ -2,7 +2,7 @@
 Follow the lecture from today to set up a Grocery List
 //COMPLETE//Have list and list item
 //COMPLETE// Have a component that displays the Grocery List Items and prices and any other relevant information.
-Be able to create new items for your list
+//COMPLETE// Be able to create new items for your list
 //COMPLETE// Be able to mark items as complete when items are bought.
 
 Bonus Objectives
