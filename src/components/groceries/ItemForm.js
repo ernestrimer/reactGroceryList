@@ -4,6 +4,13 @@ import { Form } from 'semantic-ui-react';
 class ItemForm extends Component {
   state = {grocery: '', price: '', aisle: ''}
 
+  componentDidMount() {
+    if (this.props.id) {
+      const { grocery, price, aisle } = this.props
+      this.setState({ grocery, price, aisle  })
+    }
+  }
+
   handleChange = (g) => {
     const { name, value } = g.target
     this.setState({ [name]: value })
@@ -11,13 +18,19 @@ class ItemForm extends Component {
     // this.setState({ price: 'value' })
     // this.setState({ aisle: 'value' })
     }
+
   handleSubmit = (g) => {
-    g.preventDefault()
-    // add the object to the array
-    this.props.addItem(this.state)
+    g.preventDefault();
+    if (this.props.id) {
+      this.props.updateItem( this.props.id, this.state)
+    } else {
+      // add the object to the array
+      this.props.addItem(this.state)
+    }
     // clear out the form
     this.setState({ grocery: '', price: '', aisle: '' })
     }
+
   render() {
     const { grocery, price, aisle } = this.state
     return(

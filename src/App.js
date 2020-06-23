@@ -29,6 +29,26 @@ class App extends Component {
     this.setState({ groceries: [newItem, ...groceries] })
   }
 
+  deleteItem = (id) => {
+    const groceries = this.state.groceries.filter( item => {
+      if (item.id !== id) {
+        return item 
+      } 
+    })
+    this.setState({ groceries})
+  }
+
+  updateItem = (id, updatedItem) => {
+    const { groceries } = this.state;
+    this.setState({
+      groceries: groceries.map( g => {
+        if (g.id === id) {
+          return {...updatedItem }
+        }
+        return g
+      })
+    })
+  }
   //JSX/HTML
   render() {
     //Deconstruction
@@ -38,7 +58,11 @@ class App extends Component {
         <Header size='huge' color="red" align="center">
           Grocery List
         </Header>
-        <List groceries={groceries} />
+        <List
+          groceries={groceries}
+          deleteItem={this.deleteItem}
+          updateItem={this.updateItem}
+        />
         <br/>
         <h3>Add Item to List</h3>
         <ItemForm addItem={this.addItem} />
@@ -48,7 +72,3 @@ class App extends Component {
 }
 
 export default App;
-
-///<ul>
-//<List title='Items to Hoard' groceries={groceries} />
-//</ul>
