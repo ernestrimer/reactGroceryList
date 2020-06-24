@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 //Imports
-import { Header } from 'semantic-ui-react';
+import { Header, Container, Grid } from 'semantic-ui-react';
 import List from './components/groceries/List';
 import ItemForm from './components/groceries/ItemForm';
 
@@ -54,8 +54,10 @@ class App extends Component {
     //Deconstruction
     const { groceries } = this.state
     return(
+      <Container>
       <div>
-        <Header size='huge' color="red" align="center">
+        <br/>
+        <Header size='huge' color="red" align="center" block>
           Grocery List
         </Header>
         <List
@@ -67,6 +69,7 @@ class App extends Component {
         <h3>Add Item to List</h3>
         <ItemForm addItem={this.addItem} />
       </div>
+      </Container>
     )
   }
 }

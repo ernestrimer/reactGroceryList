@@ -6,14 +6,13 @@ Follow the lecture from today to set up a Grocery List
 //COMPLETE// Be able to mark items as complete when items are bought.
 
 Bonus Objectives
-Edit grocery name.
-Add a grocery item in memory.
+//COMPLETE// Edit grocery name.
+//COMPLETE// Add a grocery item in memory.
 // Semantic ui react// Add styling.
-Delete item in memory
+//COMPLETE?? Delete item in memory
  
 
 Bonus Bonus Objectives
-
 Hook up a rails back end
 have list and item save in the data base
 Add a cart feature
